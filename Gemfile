@@ -39,6 +39,14 @@ gem 'ridgepole', :github => 'winebarrel/ridgepole', :branch => 'v0.6.5'
 
 gem 'acts-as-taggable-on'
 
+# API関連
+gem 'prmd', github: 'interagent/prmd'
+gem 'committee', github: 'interagent/committee'
+gem 'api-pagination'
+gem 'kaminari'
+gem 'json_world'
+gem 'responders'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
