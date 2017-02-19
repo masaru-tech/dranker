@@ -35,9 +35,17 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'ridgepole', :github => 'winebarrel/ridgepole', :branch => 'v0.6.5'
+
+gem 'acts-as-taggable-on'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  gem 'dotenv-rails'
+
+  gem 'pry-rails'  
 end
 
 group :development do
