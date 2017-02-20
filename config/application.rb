@@ -16,5 +16,10 @@ module Dranker
     config.active_record.default_timezone = :local
 
     config.i18n.default_locale = :ja
+
+    schema_file = "#{Rails.root}/app/docs/schema/schema.json"
+    if File.exists?(schema_file)
+      config.middleware.use Committee::Middleware::RequestValidation, schema: JSON.parse(File.read(schema_file)), strict: true, prefix: '/api'
+    end
   end
 end

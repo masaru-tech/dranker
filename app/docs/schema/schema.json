@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-04/hyper-schema",
+  "properties": {
+    "sake": {
+      "links": [
+        {
+          "description": "全ての日本酒の一覧を取得します。",
+          "href": "/sakes",
+          "method": "GET",
+          "rel": "instances",
+          "schema": {
+            "properties": {
+              "page": {
+                "example": 2,
+                "pattern": "^[0-9]+$",
+                "type": "string"
+              },
+              "per_page": {
+                "example": 20,
+                "pattern": "^[0-9]+$",
+                "type": "string"
+              }
+            }
+          },
+          "title": "list_sakes"
+        },
+        {
+          "description": "日本酒の詳細を取得します。",
+          "href": "/sakes/{sake_id}",
+          "method": "GET",
+          "rel": "self",
+          "title": "get"
+        }
+      ],
+      "properties": {
+        "id": {
+          "description": "日本酒のid",
+          "example": 1,
+          "type": "integer"
+        },
+        "name": {
+          "description": "日本酒の名前",
+          "example": "獺祭 純米大吟醸 磨き二割三分 遠心分離",
+          "type": "string"
+        },
+        "yomi": {
+          "description": "日本酒の読み",
+          "example": "ダッサイ ジュンマイダイギンジョウ ミガキニワリサンフン エンシンブンリ",
+          "type": "string"
+        },
+        "kuramoto": {
+          "description": "日本酒の蔵元名",
+          "example": "旭酒造",
+          "type": "string"
+        },
+        "locality": {
+          "description": "蔵元の都道府県",
+          "example": "山口県",
+          "type": "string"
+        },
+        "raw_rice": {
+          "description": "日本酒の原料米",
+          "example": "山田錦、日本晴",
+          "type": "string"
+        },
+        "cleaning_rate": {
+          "description": "日本酒の精米歩合",
+          "example": "23%",
+          "type": "string"
+        },
+        "nihonsyu_degree": {
+          "description": "日本酒度",
+          "example": "+5",
+          "type": "string"
+        },
+        "amino_degree": {
+          "description": "アミノ酸度",
+          "example": 1.2,
+          "type": "number"
+        },
+        "alcohol_content": {
+          "description": "アルコール度数",
+          "example": "16〜17%",
+          "type": "string"
+        },
+        "acidit": {
+          "description": "酸度",
+          "example": 1.3,
+          "type": "number"
+        },
+        "use_yeast": {
+          "description": "使用酵母",
+          "example": "岩手吟醸2号",
+          "type": "string"
+        },
+        "tags": {
+          "description": "日本酒の種類",
+          "example": [
+            "生酒",
+            "純米大吟醸"
+          ],
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "yomi",
+        "kuramoto",
+        "locality"
+      ],
+      "title": "Sake"
+    }
+  },
+  "required": [
+    "sake"
+  ]
+}
