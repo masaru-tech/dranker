@@ -67,6 +67,7 @@ GEM
       activerecord (>= 4.0)
     api-pagination (4.5.2)
     arel (7.1.4)
+    bcrypt (3.1.11)
     builder (3.2.3)
     byebug (9.0.6)
     coderay (1.1.1)
@@ -100,6 +101,7 @@ GEM
     json_schema (0.16.1)
     json_world (0.2.5)
       activesupport
+    jwt (1.5.6)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.0.1)
@@ -112,6 +114,10 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    knock (2.1.1)
+      bcrypt (~> 3.1)
+      jwt (~> 1.5)
+      rails (>= 4.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -222,6 +228,7 @@ DEPENDENCIES
   jquery-rails
   json_world
   kaminari
+  knock
   listen (~> 3.0.5)
   pg (~> 0.18)
   prmd!
