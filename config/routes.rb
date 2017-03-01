@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     get 'sakes' => 'sakes#index'
     get 'sakes/:id' => 'sakes#show'
+
+    post 'users' => 'users#create'
   end
 end

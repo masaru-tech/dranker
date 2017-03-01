@@ -110,9 +110,33 @@
         "locality"
       ],
       "title": "Sake"
+    },
+    "user": {
+      "links": [
+        {
+          "description": "新規の匿名ユーザを作成します。",
+          "href": "/users",
+          "method": "post",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "display_name": {
+                "example": "ユーザ名",
+                "type": "string"
+              }
+            },
+            "required": [
+              "display_name"
+            ]
+          },
+          "title": "create_user"
+        }
+      ],
+      "title": "User"
     }
   },
   "required": [
-    "sake"
+    "sake",
+    "user"
   ]
 }
