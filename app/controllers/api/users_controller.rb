@@ -1,7 +1,10 @@
 class Api::UsersController < Api::ApplicationController
   def create
     user = User.create!(username: params[:display_name])
-    render json: auth_token(user), status: :created
+    jwt = auth_token(user)
+    Token.create!({user_id: user.id, token: jwt.token})
+
+    render json: jwt, status: :created
   end
 
   private
