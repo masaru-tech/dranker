@@ -65,10 +65,10 @@ end
 create_table "evaluations", force: :cascade do |t|
   t.integer  "alcohol_id",             null: false
   t.integer  "rating",     default: 0, null: false
-  t.datetime "created_at",             null: false
-  t.datetime "updated_at",             null: false
   t.integer  "user_id",                null: false
   t.datetime "created_at",             null: false
   t.datetime "updated_at",             null: false
   t.index ["alcohol_id"], name: "index_evaluations_on_resource_id", using: :btree
 end
+add_foreign_key "evaluations", "users", name: "evaluations_users_fk"
+add_foreign_key "evaluations", "alcohols", name: "evaluations_alcohols_fk"
