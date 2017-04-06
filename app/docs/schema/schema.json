@@ -133,10 +133,23 @@
         }
       ],
       "title": "User"
+    },
+    "checkin": {
+      "links": [
+        {
+          "description": "チェックインを行います。",
+          "href": "/checkins/add",
+          "method": "post",
+          "rel": "create",
+          "title": "add"
+        }
+      ],
+      "title": "User"
     }
   },
   "required": [
     "sake",
-    "user"
+    "user",
+    "checkin"
   ]
 }
