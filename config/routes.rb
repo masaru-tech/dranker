@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     get 'sakes/:id' => 'sakes#show'
 
     post 'users' => 'users#create'
+
+    post 'checkins/add'
   end
 end
