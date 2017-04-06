@@ -79,3 +79,18 @@ create_table "evaluations", force: :cascade do |t|
 end
 add_foreign_key "evaluations", "users", name: "evaluations_users_fk"
 add_foreign_key "evaluations", "alcohols", name: "evaluations_alcohols_fk"
+
+create_table "checkins", force: :cascade do |t|
+  t.integer  "google_place_id",        null: false
+  t.integer  "user_id",                null: false
+  t.datetime "created_at",             null: false
+  t.datetime "updated_at",             null: false
+end
+add_foreign_key "checkins", "users", name: "checkins_users_fk"
+
+create_table "checkins_alcohols", force: :cascade do |t|
+  t.integer  "checkin_id",             null: false
+  t.integer  "alcohol_id",             null: false
+end
+add_foreign_key "checkins_alcohols", "checkins", name: "checkins_alcohols_checkins_fk"
+add_foreign_key "checkins_alcohols", "alcohols", name: "checkins_alcohols_alcohols_fk"
