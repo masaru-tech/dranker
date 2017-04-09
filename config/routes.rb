@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
     post 'users' => 'users#create'
 
+    get 'checkins' => 'checkins#index'
     post 'checkins/add'
   end
 end

@@ -137,12 +137,55 @@
     "checkin": {
       "links": [
         {
+          "description": "全てのチェックイン一覧を取得します。",
+          "href": "/checkins",
+          "method": "GET",
+          "rel": "instances",
+          "schema": {
+            "properties": {
+              "page": {
+                "example": 2,
+                "pattern": "^[0-9]+$",
+                "type": "string"
+              },
+              "per_page": {
+                "example": 20,
+                "pattern": "^[0-9]+$",
+                "type": "string"
+              }
+            }
+          },
+          "title": "list_checkins"
+        },
+        {
           "description": "チェックインを行います。",
           "href": "/checkins/add",
           "method": "post",
           "rel": "create",
           "title": "add"
         }
+      ],
+      "properties": {
+        "id": {
+          "description": "チェックインのid",
+          "example": 1,
+          "type": "integer"
+        },
+        "google_place_id": {
+          "description": "google placesのplace_id",
+          "example": "Test1234SaMPle",
+          "type": "string"
+        },
+        "username": {
+          "description": "チェックインを登録したユーザ名",
+          "example": "テストユーザ",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "google_place_id",
+        "username"
       ],
       "title": "User"
     }
