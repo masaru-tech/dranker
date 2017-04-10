@@ -22,6 +22,13 @@ module Resources
       type: String
     )
 
+    property(
+      :alcohols,
+      description: 'チェックイン時に登録したお酒名一覧',
+      example: ["獺祭 純米大吟醸 磨き二割三分 遠心分離"],
+      type: Array
+    )
+
     link(
       :list_checkins,
       description: "全てのチェックイン一覧を取得します。",
@@ -57,5 +64,9 @@ module Resources
       path: "/checkins/add",
       rel: "create",
     )
+
+    def alcohols
+      model.alcohols.pluck(:name)
+    end
   end
 end

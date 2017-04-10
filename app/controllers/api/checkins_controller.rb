@@ -2,7 +2,7 @@ class Api::CheckinsController < Api::ApplicationController
   before_action :authenticate_user
 
   def index
-    checkins = paginate Checkin.preload(:user).order(:id), page: params[:page], per_page: params[:per_page] || 20
+    checkins = paginate Checkin.preload(:user, :alcohols).order(:id), page: params[:page], per_page: params[:per_page] || 20
 
     render json: checkins.map{|checkin| Resources::Checkin.new(checkin)}
   end

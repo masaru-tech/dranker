@@ -180,12 +180,20 @@
           "description": "チェックインを登録したユーザ名",
           "example": "テストユーザ",
           "type": "string"
+        },
+        "alcohols": {
+          "description": "チェックイン時に登録したお酒名一覧",
+          "example": [
+            "獺祭 純米大吟醸 磨き二割三分 遠心分離"
+          ],
+          "type": "array"
         }
       },
       "required": [
         "id",
         "google_place_id",
-        "username"
+        "username",
+        "alcohols"
       ],
       "title": "User"
     }
