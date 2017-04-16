@@ -1,6 +1,4 @@
 class Api::CheckinsController < Api::ApplicationController
-  before_action :authenticate_user
-
   def index
     checkins = paginate Checkin.preload(:user, :alcohols).order('created_at desc'), page: params[:page], per_page: params[:per_page] || 20
 

@@ -1,4 +1,6 @@
 class Api::UsersController < Api::ApplicationController
+  skip_before_action :authenticate_user
+
   def create
     user = User.create!(username: params[:display_name])
     jwt = auth_token(user)
