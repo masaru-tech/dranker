@@ -46,6 +46,7 @@ gem 'api-pagination'
 gem 'kaminari'
 gem 'json_world'
 gem 'responders'
+gem 'link_header'
 
 gem 'knock'
 
