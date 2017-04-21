@@ -121,6 +121,8 @@ GEM
       actionpack (>= 4.1, < 5.1)
       activesupport (>= 4.1, < 5.1)
     i18n (0.8.0)
+    i18n_generators (2.1.1)
+      rails (>= 3.0.0)
     inherited_resources (1.7.1)
       actionpack (>= 3.2, < 5.1)
       has_scope (~> 0.6)
@@ -271,6 +273,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   committee!
   dotenv-rails
+  i18n_generators
   inherited_resources (~> 1.7)
   jbuilder (~> 2.5)
   jquery-rails
