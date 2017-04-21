@@ -98,7 +98,8 @@ create_table "users", force: :cascade do |t|
   t.datetime "created_at"
   t.datetime "updated_at"
   t.string   "email"
-  t.string   "password_digest"
+  t.string   "crypted_password"
+  t.string   "salt"
   t.boolean  "admin",           default: false, null: false
 end
 
