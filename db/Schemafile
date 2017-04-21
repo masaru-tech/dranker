@@ -1,39 +1,45 @@
-create_table "social_profiles", force: :cascade do |t|
-  t.string   "provider",   null: false
-  t.string   "uid",        null: false
-  t.string   "name",       null: false
-  t.string   "nickname"
-  t.string   "image_url"
-  t.integer  "user_id",    null: false
-  t.datetime "created_at", null: false
-  t.datetime "updated_at", null: false
+create_table "active_admin_comments", force: :cascade do |t|
+  t.string   "namespace"
+  t.text     "body"
+  t.string   "resource_id",   null: false
+  t.string   "resource_type", null: false
+  t.string   "author_type"
+  t.integer  "author_id"
+  t.datetime "created_at",    null: false
+  t.datetime "updated_at",    null: false
+  t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 end
-
-create_table "users", force: :cascade do |t|
-  t.string   "username",                        null: false
-  t.datetime "created_at"
-  t.datetime "updated_at"
-  t.string   "email"
-  t.string   "password_digest"
-  t.boolean  "admin",           default: false, null: false
-end
-add_foreign_key "social_profiles", "users", name: "social_profiles_users_fk"
-
-create_table "tokens", force: :cascade do |t|
-  t.integer  "user_id",                null: false
-  t.text     "token",                  null: false
-  t.datetime "created_at",             null: false
-  t.datetime "updated_at",             null: false
-end
-add_foreign_key "tokens", "users", name: "tokens_users_fk"
 
 create_table "alcohols", force: :cascade do |t|
-  t.string   "name",            null: false
-  t.string   "yomi",            null: false
-  t.string   "type",            null: false
+  t.string   "name",       null: false
+  t.string   "yomi",       null: false
+  t.string   "type",       null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.index ["type"], name: "index_alcohols_on_type", using: :btree
+end
+
+create_table "checkins", force: :cascade do |t|
+  t.string   "google_place_id", null: false
+  t.integer  "user_id",         null: false
   t.datetime "created_at",      null: false
   t.datetime "updated_at",      null: false
-  t.index ["type"], name: "index_alcohols_on_type", using: :btree
+end
+
+create_table "checkins_alcohols", force: :cascade do |t|
+  t.integer "checkin_id", null: false
+  t.integer "alcohol_id", null: false
+end
+
+create_table "evaluations", force: :cascade do |t|
+  t.integer  "alcohol_id",             null: false
+  t.integer  "rating",     default: 0, null: false
+  t.datetime "created_at",             null: false
+  t.datetime "updated_at",             null: false
+  t.integer  "user_id",                null: false
+  t.index ["alcohol_id"], name: "index_evaluations_on_resource_id", using: :btree
 end
 
 create_table "sake_infos", force: :cascade do |t|
@@ -49,6 +55,17 @@ create_table "sake_infos", force: :cascade do |t|
   t.string   "use_yeast"
   t.datetime "created_at",      null: false
   t.datetime "updated_at",      null: false
+end
+
+create_table "social_profiles", force: :cascade do |t|
+  t.string   "provider",   null: false
+  t.string   "uid",        null: false
+  t.string   "name",       null: false
+  t.string   "nickname"
+  t.string   "image_url"
+  t.integer  "user_id",    null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
 end
 
 create_table "taggings", force: :cascade do |t|
@@ -69,28 +86,27 @@ create_table "tags", force: :cascade do |t|
   t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
 end
 
-create_table "evaluations", force: :cascade do |t|
-  t.integer  "alcohol_id",             null: false
-  t.integer  "rating",     default: 0, null: false
-  t.integer  "user_id",                null: false
-  t.datetime "created_at",             null: false
-  t.datetime "updated_at",             null: false
-  t.index ["alcohol_id"], name: "index_evaluations_on_resource_id", using: :btree
+create_table "tokens", force: :cascade do |t|
+  t.integer  "user_id",    null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.text     "token",      null: false
 end
-add_foreign_key "evaluations", "users", name: "evaluations_users_fk"
-add_foreign_key "evaluations", "alcohols", name: "evaluations_alcohols_fk"
 
-create_table "checkins", force: :cascade do |t|
-  t.string  "google_place_id",         null: false
-  t.integer  "user_id",                null: false
-  t.datetime "created_at",             null: false
-  t.datetime "updated_at",             null: false
+create_table "users", force: :cascade do |t|
+  t.string   "username",                        null: false
+  t.datetime "created_at"
+  t.datetime "updated_at"
+  t.string   "email"
+  t.string   "crypted_password"
+  t.string   "salt"
+  t.boolean  "admin",           default: false, null: false
 end
+
 add_foreign_key "checkins", "users", name: "checkins_users_fk"
-
-create_table "checkins_alcohols", force: :cascade do |t|
-  t.integer  "checkin_id",             null: false
-  t.integer  "alcohol_id",             null: false
-end
-add_foreign_key "checkins_alcohols", "checkins", name: "checkins_alcohols_checkins_fk"
 add_foreign_key "checkins_alcohols", "alcohols", name: "checkins_alcohols_alcohols_fk"
+add_foreign_key "checkins_alcohols", "checkins", name: "checkins_alcohols_checkins_fk"
+add_foreign_key "evaluations", "alcohols", name: "evaluations_alcohols_fk"
+add_foreign_key "evaluations", "users", name: "evaluations_users_fk"
+add_foreign_key "social_profiles", "users", name: "social_profiles_users_fk"
+add_foreign_key "tokens", "users", name: "tokens_users_fk"

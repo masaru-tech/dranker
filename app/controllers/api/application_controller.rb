@@ -4,13 +4,17 @@ class Api::ApplicationController < ActionController::Base
 
   protect_from_forgery with: :null_session
 
-  before_action :authenticate_user
+  before_action :authenticate_app_user
 
   around_action :wrap_api
 
   respond_to :json
 
   private
+    def authenticate_app_user
+      authenticate_for AppUser
+    end
+
     def wrap_api
       begin
         yield
