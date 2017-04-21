@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    login(params[:user][:email], params[:user][:password])
+    user = login(params[:user][:email], params[:user][:password])
 
-    logout unless current_user.admin
+    logout unless user&.admin
 
-    redirect_to admin_dashboard_path
+    redirect_back_or_to admin_dashboard_path
   end
 
   def destroy
