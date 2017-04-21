@@ -53,6 +53,7 @@ gem 'knock'
 # 管理者画面
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', '~> 1.7'
+gem 'active_admin_theme'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
