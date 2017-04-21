@@ -50,6 +50,10 @@ gem 'link_header'
 
 gem 'knock'
 
+# 管理者画面
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', '~> 1.7'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
