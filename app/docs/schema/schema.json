@@ -195,12 +195,52 @@
         "username",
         "alcohols"
       ],
-      "title": "User"
+      "title": "Checkin"
+    },
+    "place": {
+      "links": [
+        {
+          "description": "新規の場所を作成します。",
+          "href": "/places",
+          "method": "post",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "name": {
+                "example": "テスト居酒屋　XX店",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ]
+          },
+          "title": "create_place"
+        }
+      ],
+      "properties": {
+        "id": {
+          "description": "場所のid",
+          "example": 1,
+          "type": "integer"
+        },
+        "name": {
+          "description": "場所の名前(店名)",
+          "example": "テスト居酒屋　XX店",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "title": "Place"
     }
   },
   "required": [
     "sake",
     "user",
-    "checkin"
+    "checkin",
+    "place"
   ]
 }

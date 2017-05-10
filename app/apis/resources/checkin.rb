@@ -1,6 +1,6 @@
 module Resources
   class Checkin < Base
-    title 'User'
+    title 'Checkin'
     property(
       :id,
       description: 'チェックインのid',
