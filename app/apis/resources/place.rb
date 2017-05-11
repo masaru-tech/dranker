@@ -31,6 +31,27 @@ module Resources
       }
     )
 
+    link(
+      :list_places,
+      description: "場所の一覧を取得します。",
+      path: "/places",
+      rel: "instances",
+      parameters: {
+        page: {
+          example: 2,
+          optional: true,
+          type: String,
+          pattern: /^[0-9]+$/
+        },
+        per_page: {
+          example: 20,
+          optional: true,
+          type: String,
+          pattern: /^[0-9]+$/
+        }
+      }
+    )
+
     delegate(
       :id,
       :name,

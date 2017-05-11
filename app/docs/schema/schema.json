@@ -216,6 +216,27 @@
             ]
           },
           "title": "create_place"
+        },
+        {
+          "description": "場所の一覧を取得します。",
+          "href": "/places",
+          "method": "GET",
+          "rel": "instances",
+          "schema": {
+            "properties": {
+              "page": {
+                "example": 2,
+                "pattern": "^[0-9]+$",
+                "type": "string"
+              },
+              "per_page": {
+                "example": 20,
+                "pattern": "^[0-9]+$",
+                "type": "string"
+              }
+            }
+          },
+          "title": "list_places"
         }
       ],
       "properties": {
