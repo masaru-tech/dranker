@@ -1,5 +1,5 @@
 class Api::UsersController < Api::ApplicationController
-  skip_before_action :authenticate_user
+  skip_before_action :authenticate_app_user
 
   def create
     user = AppUser.create!(username: params[:display_name])
