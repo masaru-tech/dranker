@@ -18,7 +18,7 @@ class Api::CheckinsController < Api::ApplicationController
   end
 
   def add
-    checkin = Checkin.new({google_place_id: checkin_params[:place_id], user_id: current_app_user.id})
+    checkin = Checkin.new({place_id: checkin_params[:place_id], user_id: current_app_user.id})
     checkin.checkins_alcohols.build(checkin_params[:alcohols].map{|alcohol_id| {alcohol_id: alcohol_id} })
     checkin.save!
 

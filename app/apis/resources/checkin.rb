@@ -9,9 +9,9 @@ module Resources
     )
 
     property(
-      :google_place_id,
-      description: 'google placesのplace_id',
-      example: "Test1234SaMPle",
+      :place_id,
+      description: '場所のid',
+      example: "1234",
       type: String
     )
 
@@ -52,7 +52,7 @@ module Resources
 
     delegate(
       :id,
-      :google_place_id,
+      :place_id,
       :username,
       to: :model
     )
