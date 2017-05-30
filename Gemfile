@@ -50,11 +50,8 @@ gem 'link_header'
 
 gem 'knock'
 
-# 管理者画面
-gem 'activeadmin', github: 'activeadmin'
-gem 'inherited_resources', '~> 1.7'
-gem 'active_admin_theme'
-
+# 管理画面関連
+gem 'administrate'
 gem 'sorcery'
 
 group :development, :test do

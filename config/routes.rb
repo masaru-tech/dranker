@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
-  ActiveAdmin.routes(self)
+  namespace :admin do
+    resources :alcohols
+    resources :checkins
+    resources :places
+    resources :users
+    resources :sakes
+    resources :sake_infos
+
+    namespace :acts_as_taggable_on do
+      resources :tags
+      resources :taggings
+    end
+
+    root to: "sakes#index"
+  end
 
   resources :sessions, only: %i(new create)
-  delete 'sign_out', to: 'sessions#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do

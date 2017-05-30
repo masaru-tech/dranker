@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     logout unless user&.admin
 
-    redirect_back_or_to admin_dashboard_path
+    redirect_back_or_to admin_root_path
   end
 
   def destroy
