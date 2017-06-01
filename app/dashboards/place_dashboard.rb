@@ -12,6 +12,7 @@ class PlaceDashboard < Administrate::BaseDashboard
     name: Field::String,
     lat: Field::String.with_options(searchable: false),
     lng: Field::String.with_options(searchable: false),
+    address: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,6 +27,7 @@ class PlaceDashboard < Administrate::BaseDashboard
     :name,
     :lat,
     :lng,
+    :address,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,6 +37,7 @@ class PlaceDashboard < Administrate::BaseDashboard
     :name,
     :lat,
     :lng,
+    :address,
     :created_at,
     :updated_at,
   ].freeze
@@ -46,6 +49,7 @@ class PlaceDashboard < Administrate::BaseDashboard
     :name,
     :lat,
     :lng,
+    :address,
   ].freeze
 
   # Overwrite this method to customize how places are displayed
