@@ -48,6 +48,7 @@ create_table "places", force: :cascade do |t|
   t.decimal  "lng",        precision: 8, scale: 5
   t.datetime "created_at",                       null: false
   t.datetime "updated_at",                       null: false
+  t.text   "address"
 end
 
 create_table "sake_infos", force: :cascade do |t|
