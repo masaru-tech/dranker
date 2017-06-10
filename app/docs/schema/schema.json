@@ -171,9 +171,9 @@
           "example": 1,
           "type": "integer"
         },
-        "place_id": {
-          "description": "場所のid",
-          "example": "1234",
+        "place_name": {
+          "description": "場所の名前",
+          "example": "テスト居酒屋",
           "type": "string"
         },
         "username": {
@@ -187,13 +187,19 @@
             "獺祭 純米大吟醸 磨き二割三分 遠心分離"
           ],
           "type": "array"
+        },
+        "created_at": {
+          "description": "チェックインした日時",
+          "example": "2017-05-23T02:38:44+09:00",
+          "type": "string"
         }
       },
       "required": [
         "id",
-        "place_id",
+        "place_name",
         "username",
-        "alcohols"
+        "alcohols",
+        "created_at"
       ],
       "title": "Checkin"
     },

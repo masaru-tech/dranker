@@ -9,9 +9,9 @@ module Resources
     )
 
     property(
-      :place_id,
-      description: '場所のid',
-      example: "1234",
+      :place_name,
+      description: '場所の名前',
+      example: "テスト居酒屋",
       type: String
     )
 
@@ -27,6 +27,13 @@ module Resources
       description: 'チェックイン時に登録したお酒名一覧',
       example: ["獺祭 純米大吟醸 磨き二割三分 遠心分離"],
       type: Array
+    )
+
+    property(
+      :created_at,
+      description: 'チェックインした日時',
+      example: "2017-05-23T02:38:44+09:00",
+      type: String
     )
 
     link(
@@ -52,8 +59,9 @@ module Resources
 
     delegate(
       :id,
-      :place_id,
+      :place_name,
       :username,
+      :created_at,
       to: :model
     )
 
