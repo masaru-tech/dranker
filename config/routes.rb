@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'top/index'
+
   namespace :admin do
     resources :alcohols
     resources :checkins

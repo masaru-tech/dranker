@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require js/bootstrap.min
+//= require js/material.min
+//= require js/nouislider.min
+//= require js/bootstrap-datepicker
+//= require js/material-kit
 //= require_tree .
