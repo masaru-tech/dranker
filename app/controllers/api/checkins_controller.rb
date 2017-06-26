@@ -7,11 +7,11 @@ class Api::CheckinsController < Api::ApplicationController
     direction = params[:since_id].present? ? 'after' : 'before'
 
     if cursor_id
-      checkins = checkins.where("checkins.id #{direction == 'after' ? '>' : '<'} ?", cursor_id)
+      checkins = checkins.where("checkins.id #{direction == 'after' ? '>' : '<'} ?", cursor_id.to_i)
     end
 
-    next_path = api_checkins_url({since_id: checkins.first.id, limit: limit}) unless checkins.empty?
-    prev_path = api_checkins_url({until_id: checkins.last.id, limit: limit})  unless checkins.empty?
+    next_path = api_checkins_url({since_id: checkins.first.id, limit: limit}) unless checkins.blank?
+    prev_path = api_checkins_url({until_id: checkins.last.id, limit: limit})  unless checkins.blank?
     set_pagination_headers(next_path, prev_path)
 
     render json: checkins.map{|checkin| Resources::Checkin.new(checkin)}
