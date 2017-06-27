@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require rails-ujs
 //= require turbolinks
-//= require js/bootstrap.min
+//= require bootstrap/dist/js/bootstrap.min
 //= require js/material.min
 //= require js/nouislider.min
-//= require js/bootstrap-datepicker
+//= require bootstrap-datepicker/dist/js/bootstrap-datepicker.min
 //= require js/material-kit
 //= require_tree .

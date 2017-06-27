@@ -271,7 +271,6 @@ DEPENDENCIES
   dotenv-rails
   i18n_generators
   jbuilder (~> 2.5)
-  jquery-rails
   json_world
   kaminari
   knock
