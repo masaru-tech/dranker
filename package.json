@@ -2,6 +2,7 @@
   "dependencies": {
     "bootstrap": "3.3.5",
     "bootstrap-datepicker": "^1.7.0",
+    "font-awesome": "^4.7.0",
     "jquery": "1.11.3"
   }
 }
