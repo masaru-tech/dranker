@@ -1,0 +1,36 @@
+$brand-primary: #f4cb07 !default;
+@import 'sass/material-kit';
+
+// $seashell: #FFFCFB;
+// $koromiko: #FBAF4E;
+// $bleach-white: #E9E1CE;
+// $kournikova: #F6CE57;
+// $copper: #D9916A;
+// $splash: #EED79E;
+
+.header-filter:after {
+  background: linear-gradient(150deg, #f4cb07 20%, #f7eb6b 80%);
+}
+
+.landing-page .header .container {
+  padding-top: 10vh;
+}
+
+@media (min-width: 992px) {
+  .landing-page .header {
+    height: 50vh;
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 991px) {
+  .landing-page .header {
+    min-height: 35vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar.navbar-transparent {
+    background-color: transparent;
+  }
+}
